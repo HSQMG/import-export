@@ -1,4 +1,4 @@
-body {
+﻿body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -54,18 +54,13 @@ body {
     }
 
 .table-container {
-    width: 100%;
     overflow-x: auto;
-    margin-top: 20px;
-    border: 1px solid #ddd; /* Add a border */
-    border-radius: 4px; /* Add border radius for aesthetics */
-    padding: 10px; /* Add padding for better separation */
 }
-
 
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 20px;
 }
 
 th, td {
