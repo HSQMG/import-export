@@ -3,14 +3,14 @@ let myData = [];
 
 // Hàm để lấy dữ liệu người dùng từ API
 function getData() {
-    // Lấy số lượng người dùng cần lấy từ trường nhập liệu
+    // Lấy số lượng người dùng cần lấy từ trường nhập liệu là quantity
     const quantity = document.getElementById('quantity').value;
     // Thực hiện yêu cầu AJAX đến API randomuser
     $.ajax({
         url: `https://randomuser.me/api/?results=${quantity}`,
         dataType: 'json',
         success: function(data) {
-            console.log('getData', data.results);
+            //console.log('getData', data.results);
             // Gọi hàm showData để hiển thị dữ liệu đã lấy được
             showData(data.results);
         },
@@ -29,7 +29,7 @@ function showData(data) {
             income: `$` + (Math.random() * 1000).toFixed(2), // Tạo thu nhập ngẫu nhiên
         };
     });
-    console.log('myData', myData);
+    //console.log('myData', myData);
     // Tạo HTML cho bảng
     let html = '<tr><td>Tên</td><td>Họ</td><td>Email</td><td>Phone</td><td>Income</td></tr>';
     // Thêm dữ liệu của từng người dùng vào bảng
@@ -57,7 +57,9 @@ function exportToExcel() {
     }
     console.log('exportToExcel', myData);
     // Chuyển đổi dữ liệu sang định dạng Excel
+    //Hàm này chuyển đổi một mảng dữ liệu JSON (myData) thành một đối tượng bảng (worksheet) Excel.
     const wb = XLSX.utils.json_to_sheet(myData);
+    //Tạo workbook mới
     const wbout = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wbout, wb, 'Users');
     // Lưu file Excel
