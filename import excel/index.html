@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Excel File</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="file-upload">
+            <label for="fileInput">Choose an Excel file:</label>
+            <input type="file" id="fileInput" accept=".xlsx, .xls" onchange="handleFile()">
+        </div>
+        <div class="sheet-selector" id="sheetSelector" style="display: none;">
+            <label for="sheet">Select a sheet:</label>
+            <select id="sheet"></select>
+            <button class="load-button" onclick="handleSheetSelection()">Load Sheet</button>
+        </div>
+        <div id="output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
