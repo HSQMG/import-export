@@ -1,7 +1,6 @@
 // Mảng để lưu trữ dữ liệu người dùng đã lấy được
 let myData = [];
 
-// Hàm để lấy dữ liệu người dùng từ API
 function getData() {
     // Lấy số lượng người dùng cần lấy từ trường nhập liệu là quantity
     const quantity = document.getElementById('quantity').value;
@@ -10,7 +9,7 @@ function getData() {
         url: `https://randomuser.me/api/?results=${quantity}`,
         dataType: 'json',
         success: function(data) {
-            //console.log('getData', data.results);
+            console.log('getData', data.results);
             // Gọi hàm showData để hiển thị dữ liệu đã lấy được
             showData(data.results);
         },
@@ -50,12 +49,11 @@ function showData(data) {
 function exportToExcel() {
     // Lấy tên file từ trường nhập liệu
     const fileName = document.getElementById('filename').value;
-    // Kiểm tra xem có dữ liệu để xuất không
+    // Kiểm tra dữ liệu có rỗng hay là không
     if (myData.length === 0) {
         console.error('Chưa có dữ liệu'); // Ghi log lỗi nếu không có dữ liệu
         return;
     }
-    console.log('exportToExcel', myData);
     // Chuyển đổi dữ liệu sang định dạng Excel
     //Hàm này chuyển đổi một mảng dữ liệu JSON (myData) thành một đối tượng bảng (worksheet) Excel.
     const wb = XLSX.utils.json_to_sheet(myData);
